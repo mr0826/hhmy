@@ -1,7 +1,7 @@
 package cosDataPack;
 
 public class Av extends Shohin{
-	
+
 	/** 色 */
 	private String color;
 	/** 型番 */
@@ -17,7 +17,7 @@ public class Av extends Shohin{
 	/** 対応メディア */
 	private String media;
 	/** インターフェース */
-	private String face;
+	private String face;//a
 	/** 消費電力 */
 	private String power;
 	/** 付属品 */
@@ -28,7 +28,7 @@ public class Av extends Shohin{
 	private String mass;
 	/** 寸法 */
 	private String measure;
-	
+
 	/**
 	 * 引数なしコンストラクタ。
 	 */
@@ -243,7 +243,7 @@ public class Av extends Shohin{
 	public void setMeasure(String measure) {
 		this.measure = measure;
 	}
-	 
-	 
+
+
 
 }
