@@ -10,7 +10,7 @@ import java.sql.SQLException;
  */
 public class DaoConnectionManager {
 	/** DBのURL */
-	private static final String URL = "jdbc:h2:tcp://localhost/~/coscommon02";
+	private static final String URL = "jdbc:h2:tcp://localhost/~/coscommon02"; //URLをcoscommon01からcoscommon02に変更
 	/** ユーザー名 */
 	private static final String USER = "sa";
 	/** パスワード */
