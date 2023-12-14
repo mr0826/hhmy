@@ -15,7 +15,7 @@ public class Av extends Shohin{
 	/** 記憶容量 */
 	private String capacity;
 	/** 対応メディア */
-	private String media;//l
+	private String media;
 	/** インターフェース */
 	private String face;
 	/** 消費電力 */
