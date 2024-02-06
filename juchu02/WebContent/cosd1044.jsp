@@ -107,11 +107,11 @@
 							</tr>
 							<tr>
 								<th>メモリ容量</th>
-								<td><%=pc.getMemory_capacity() %></td>
+								<td><%=pc.getM_capacity() %></td>
 							</tr>
 							<tr>
 								<th>HDD容量</th>
-								<td><%=pc.getHdd_capacity() %></td>
+								<td><%=pc.getH_capacity() %></td>
 							</tr>
 							<tr>
 								<th>ドライブ</th>
@@ -127,7 +127,7 @@
 							</tr>
 							<tr>
 								<th>統合ソフト</th>
-								<td><%=pc.getSoft() %></td>
+								<td><%=pc.getC_Soft() %></td>
 							</tr>
 							<tr>
 								<th>バッテリ</th>
@@ -139,7 +139,7 @@
 							</tr>
 							<tr>
 								<th>保証期間</th>
-								<td><%=pc.getAssurance() %></td>
+								<td><%=pc.getA_period() %></td>
 							</tr>
 							<tr>
 								<th>質量</th>

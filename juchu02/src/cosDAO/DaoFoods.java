@@ -43,7 +43,7 @@ public class DaoFoods extends DaoShohin {
 		//引数で渡された商品コードと営業所コードにより１件の情報を取得するSQL
 				query = "SELECT B.GOODSCD, B.GOODSNAME, B.H_TANKA, C.GCTGCD, C.GCTGNAME, G.GSUBCTGCD, " +
 						"G.GSUBCTGNAME, C.CLASSNAME, M.MAKERNAME, B.IRISU, B.TANNI, B.MAKERCD, B.COMMENT, B.IMG_URI, " +
-						"H.ZAIKO_CNT, B.SHUBETU, B.OTHER, B.TASTE, B.NET, B.PRODUCTION_COUNTRY, B.HEAT, B.MATERIALS, B.NUTRITION " +
+						"H.ZAIKO_CNT, B.SHUBETU, B.OTHER, B.TASTE, B.NET, B.P_COUNTRY, B.CALORIE, B.MATERIALS, B.NUTRITION " +
 						"FROM FOODS_TABLE B, GSUBCTG_TABLE G, CTR_GCTG_TABLE C, HANBAIZAIKO" + eigyosyoCD
 						+ "_TABLE H, MAKER_TABLE M " +
 						"WHERE ((LEFT(B.GOODSCD, 2) = C.GCTGCD) AND (LEFT(B.GOODSCD, 4) = G.GSUBCTGCD) " +
@@ -80,14 +80,14 @@ public class DaoFoods extends DaoShohin {
 						f1.setOther(rs.getString("OTHER"));
 						f1.setTaste(rs.getString("TASTE"));
 						f1.setNet(rs.getString("NET"));
-						f1.setProduction_country(rs.getString("PRODUCTION_COUNTRY"));
-						f1.setHeat(rs.getString("HEAT"));
+						f1.setP_country(rs.getString("P_COUNTRY"));
+						f1.setCalorie(rs.getString("CALORIE"));
 						f1.setMaterials(rs.getString("MATERIALS"));
 						f1.setNutrition(rs.getString("NUTRITION"));
 						//リストに追加
 						list.add(f1);
 					} else {
-						//対象の文具データがなければnullを返す
+						//対象の食品データがなければnullを返す
 						list = null;
 					}
 					//ResultSetのクローズ

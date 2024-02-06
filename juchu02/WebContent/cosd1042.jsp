@@ -99,11 +99,11 @@
 							</tr>
 							<tr>
 								<th>製造国</th>
-								<td><%=foods.getProduction_country() %></td>
+								<td><%=foods.getP_country() %></td>
 							</tr>
 							<tr>
 								<th>熱量</th>
-								<td><%=foods.getHeat() %></td>
+								<td><%=foods.getCalorie() %></td>
 							</tr>
 							<tr>
 								<th>原材料</th>

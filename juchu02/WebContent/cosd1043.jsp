@@ -123,7 +123,7 @@
 							</tr>
 							<tr>
 								<th>消費電力</th>
-								<td><%=av.getPower() %></td>
+								<td><%=av.getC_Power() %></td>
 							</tr>
 							<tr>
 								<th>付属品</th>
@@ -131,7 +131,7 @@
 							</tr>
 							<tr>
 								<th>保証期間</th>
-								<td><%=av.getAssurance() %></td>
+								<td><%=av.getA_period() %></td>
 							</tr>
 							<tr>
 								<th>質量</th>

@@ -19,11 +19,11 @@ public class Av extends Shohin{
 	/** インターフェース */
 	private String face;
 	/** 消費電力 */
-	private String power;
+	private String C_power;
 	/** 付属品 */
 	private String accessory;
 	/** 保証期間 */
-	private String assurance;
+	private String A_period;
 	/** 質量 */
 	private String mass;
 	/** 寸法 */
@@ -38,7 +38,7 @@ public class Av extends Shohin{
 
 	/**
 	 * 色を取得する
-	 * @return
+	 * @return 色
 	 */
 	public String getColor() {
 		return color;
@@ -46,7 +46,7 @@ public class Av extends Shohin{
 
 	/**
 	 * 色を設定する
-	 * @param color
+	 * @param color 色
 	 */
 	public void setColor(String color) {
 		this.color = color;
@@ -54,7 +54,7 @@ public class Av extends Shohin{
 
 	/**
 	 * 型番を取得する
-	 * @return
+	 * @return 型番
 	 */
 	public String getKataban() {
 		return kataban;
@@ -62,7 +62,7 @@ public class Av extends Shohin{
 
 	/**
 	 * 型番を設定する
-	 * @param kataban
+	 * @param kataban 型番
 	 */
 	public void setKataban(String kataban) {
 		this.kataban = kataban;
@@ -70,7 +70,7 @@ public class Av extends Shohin{
 
 	/**
 	 * サイズを取得する
-	 * @return
+	 * @return サイズ
 	 */
 	public String getSize() {
 		return size;
@@ -78,7 +78,7 @@ public class Av extends Shohin{
 
 	/**
 	 * サイズを設定する
-	 * @param size
+	 * @param size サイズ
 	 */
 	public void setSize(String size) {
 		this.size = size;
@@ -86,7 +86,7 @@ public class Av extends Shohin{
 
 	/**
 	 * 解像度を取得する
-	 * @return
+	 * @return 解像度
 	 */
 	public String getResolution() {
 		return resolution;
@@ -94,7 +94,7 @@ public class Av extends Shohin{
 
 	/**
 	 * 解像度を設定する
-	 * @param resolution
+	 * @param resolution 解像度
 	 */
 	public void setResolution(String resolution) {
 		this.resolution = resolution;
@@ -102,7 +102,7 @@ public class Av extends Shohin{
 
 	/**
 	 * 音量を取得する
-	 * @return
+	 * @return 音量
 	 */
 	public String getSound() {
 		return sound;
@@ -110,7 +110,7 @@ public class Av extends Shohin{
 
 	/**
 	 * 音量を設定する
-	 * @param sound
+	 * @param sound 音量
 	 */
 	public void setSound(String sound) {
 		this.sound = sound;
@@ -118,7 +118,7 @@ public class Av extends Shohin{
 
 	/**
 	 * 容量を取得する
-	 * @return
+	 * @return 容量
 	 */
 	public String getCapacity() {
 		return capacity;
@@ -126,7 +126,7 @@ public class Av extends Shohin{
 
 	/**
 	 * 容量を設定する
-	 * @param capacity
+	 * @param capacity 容量
 	 */
 	public void setCapacity(String capacity) {
 		this.capacity = capacity;
@@ -134,7 +134,7 @@ public class Av extends Shohin{
 
 	/**
 	 * メディアを取得する
-	 * @return
+	 * @return メディア
 	 */
 	public String getMedia() {
 		return media;
@@ -142,7 +142,7 @@ public class Av extends Shohin{
 
 	/**
 	 * メディアを設定する
-	 * @param media
+	 * @param media メディア
 	 */
 	public void setMedia(String media) {
 		this.media = media;
@@ -150,7 +150,7 @@ public class Av extends Shohin{
 
 	/**
 	 * インターフェースを取得する
-	 * @return
+	 * @return インターフェース
 	 */
 	public String getFace() {
 		return face;
@@ -158,7 +158,7 @@ public class Av extends Shohin{
 
 	/**
 	 * インターフェースを設定する
-	 * @param face
+	 * @param face インターフェース
 	 */
 	public void setFace(String face) {
 		this.face = face;
@@ -166,23 +166,23 @@ public class Av extends Shohin{
 
 	/**
 	 * 電力を取得する
-	 * @return
+	 * @return 電力
 	 */
-	public String getPower() {
-		return power;
+	public String getC_Power() {
+		return C_power;
 	}
 
 	/**
 	 * 電力を設定する
-	 * @param power
+	 * @param C_power 電力
 	 */
-	public void setPower(String power) {
-		this.power = power;
+	public void setC_Power(String C_power) {
+		this.C_power = C_power;
 	}
 
 	/**
 	 * 付属品を取得する
-	 * @return
+	 * @return 付属品
 	 */
 	public String getAccessory() {
 		return accessory;
@@ -190,7 +190,7 @@ public class Av extends Shohin{
 
 	/**
 	 * 付属品を設定する
-	 * @param accessory
+	 * @param accessory 付属品
 	 */
 	public void setAccessory(String accessory) {
 		this.accessory = accessory;
@@ -198,23 +198,23 @@ public class Av extends Shohin{
 
 	/**
 	 * 保証期間を取得する
-	 * @return
+	 * @return 保証期間
 	 */
-	public String getAssurance() {
-		return assurance;
+	public String getA_period() {
+		return A_period;
 	}
 
 	/**
 	 * 保証期間を設定する
-	 * @param assurance
+	 * @param A_period 保証期間
 	 */
-	public void setAssurance(String assurance) {
-		this.assurance = assurance;
+	public void setA_period(String A_period) {
+		this.A_period = A_period;
 	}
 
 	/**
 	 * 質量を取得する
-	 * @return
+	 * @return 質量
 	 */
 	public String getMass() {
 		return mass;
@@ -222,7 +222,7 @@ public class Av extends Shohin{
 
 	/**
 	 * 質量を設定する
-	 * @param mass
+	 * @param mass 質量
 	 */
 	public void setMass(String mass) {
 		this.mass = mass;
@@ -230,7 +230,7 @@ public class Av extends Shohin{
 
 	/**
 	 * 寸法を取得する
-	 * @return
+	 * @return 寸法
 	 */
 	public String getMeasure() {
 		return measure;
@@ -238,7 +238,7 @@ public class Av extends Shohin{
 
 	/**
 	 * 寸法を設定する
-	 * @param measure
+	 * @param measure 寸法
 	 */
 	public void setMeasure(String measure) {
 		this.measure = measure;

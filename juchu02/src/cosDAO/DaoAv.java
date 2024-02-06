@@ -44,7 +44,7 @@ public class DaoAv extends DaoShohin {
 				query = "SELECT B.GOODSCD, B.GOODSNAME, B.H_TANKA, C.GCTGCD, C.GCTGNAME, G.GSUBCTGCD, " +
 						"G.GSUBCTGNAME, C.CLASSNAME, M.MAKERNAME, B.IRISU, B.TANNI, B.MAKERCD, B.COMMENT, B.IMG_URI, " +
 						"H.ZAIKO_CNT, B.SHUBETU, B.OTHER, B.COLOR, B.KATABAN, B.SIZE, B.RESOLUTION, B.SOUND, B.CAPACITY, B.MEDIA,"
-						+ "B.FACE, B.POWER, B.ACCESSORY, B.ASSURANCE, B.MASS, B.MEASURE " +
+						+ "B.FACE, B.C_POWER, B.ACCESSORY, B.A_PERIOD, B.MASS, B.MEASURE " +
 						"FROM AV_TABLE B, GSUBCTG_TABLE G, CTR_GCTG_TABLE C, HANBAIZAIKO" + eigyosyoCD
 						+ "_TABLE H, MAKER_TABLE M " +
 						"WHERE ((LEFT(B.GOODSCD, 2) = C.GCTGCD) AND (LEFT(B.GOODSCD, 4) = G.GSUBCTGCD) " +
@@ -87,15 +87,15 @@ public class DaoAv extends DaoShohin {
 						a1.setCapacity(rs.getString("CAPACITY"));
 						a1.setMedia(rs.getString("MEDIA"));
 						a1.setFace(rs.getString("FACE"));
-						a1.setPower(rs.getString("POWER"));
+						a1.setC_Power(rs.getString("C_POWER"));
 						a1.setAccessory(rs.getString("ACCESSORY"));
-						a1.setAssurance(rs.getString("ASSURANCE"));
+						a1.setA_period(rs.getString("A_PERIOD"));
 						a1.setMass(rs.getString("MASS"));
 						a1.setMeasure(rs.getString("MEASURE"));
 						//リストに追加
 						list.add(a1);
 					} else {
-						//対象の文具データがなければnullを返す
+						//対象のAv機器データがなければnullを返す
 						list = null;
 					}
 					//ResultSetのクローズ

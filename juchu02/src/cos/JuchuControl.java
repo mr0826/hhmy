@@ -39,16 +39,13 @@ public class JuchuControl extends BaseControl {
 		targetHoujin.put("検索", "cosd1020.jsp");
 		targetHoujin.put("カートに入れる", "cosd1020.jsp");
 		targetHoujin.put("カート内リスト", "cosd1030.jsp");
-		//*******ここから、ver1*******
 		targetHoujin.put("詳細01", "cosd1040.jsp");
 		targetHoujin.put("詳細02", "cosd1041.jsp");
-		//*******ここまで、ver1*******
-
-		//*******ここから、ver2*******
-		targetHoujin.put("詳細03", "cosd1042.jsp"); //商品詳細説明画面・食品追加
-		targetHoujin.put("詳細04", "cosd1043.jsp"); //商品詳細説明画面・AV追加
-		targetHoujin.put("詳細05", "cosd1044.jsp"); //商品詳細説明画面・PC追加
-		//*******ここまで、ver2*******
+		//ここからver２
+		targetHoujin.put("詳細03", "cosd1042.jsp");
+		targetHoujin.put("詳細04", "cosd1043.jsp");
+		targetHoujin.put("詳細05", "cosd1044.jsp");
+		//ここまでver２
 		targetHoujin.put("ご注文手続きへ", "cosd1050.jsp");
 		targetHoujin.put("ご購入を続ける", "cosd1010.jsp");
 		targetHoujin.put("再計算", "cosd1030.jsp");
@@ -214,6 +211,18 @@ public class JuchuControl extends BaseControl {
 		if (btn.equals("ログオン") || btn.equals("ご購入を続ける")) {
 			//商品コントロールの商品カテゴリリストを作成するメソッドを呼び出す
 			categoryList = ShohinControl.getShohinCateList();
+			//画面で選択されたサブカテゴリを取得する
+			//ShohinCategory category = new ShohinCategory();
+			String gsubctg = null;
+			for (ShohinCategory category : categoryList) {
+			gsubctg = category.getGsubctgCD();
+			}
+			//受注データから営業所コードを取得する
+			String eigyoshoCD = data.getKokyaku().getEigyoshoCD();
+			//商品コントロールの商品リスト取得メソッドを呼び出して商品リストを取得する
+			shohinList = ShohinControl.getShohinList(gsubctg, eigyoshoCD);
+			//商品サブカテゴリコードをセッションにセットする
+			session.setAttribute("subctgcd", gsubctg);
 		}
 		/*
 		 * ”検索”が押されたとき

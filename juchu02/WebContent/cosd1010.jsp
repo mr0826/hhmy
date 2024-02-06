@@ -1,20 +1,31 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <%@ page import="java.util.ArrayList"%>
-<%@ page import="cosDataPack.ShohinCategory"%>
-<%@ page import="cosDataPack.Kokyaku"%>
+<%@ page import="cosDataPack.Shohin"%>
 <%@ page import="cosDataPack.Juchu"%>
+<%@ page import="cosDataPack.Kokyaku"%>
+<%@ page import="cosDataPack.ShohinCategory"%>
 <%@ page import="cos.JuchuControl"%>
 <%@ page import="java.text.DecimalFormat"%>
 <%@ page import="java.lang.IllegalArgumentException"%>
 
 <!DOCTYPE html>
 <jsp:useBean id="juchucontrol" scope="session" class="cos.JuchuControl" />
+<html lang="ja">
 <%
-	//受注データ、顧客データ、商品カテゴリリストを取り出す
+	//受注データ、顧客データ、商品カテゴリリストを取り出す、商品リストの取得
 	Juchu juchu = juchucontrol.getData();
 	Kokyaku kokyaku = juchu.getKokyaku();
 	ArrayList<ShohinCategory> categorylist = juchucontrol.getCategoryList();
+	ArrayList<Shohin> shohinList = juchucontrol.getShohinList();
+	String gsubctg = (String) session.getAttribute("subctgcd");
+	//選択された商品サブカテゴリ名の取得
+		String gsubctgName = null;
+		for (ShohinCategory category : categorylist) {
+			if (category.getGsubctgCD().equals(gsubctg)) {
+				gsubctgName = category.getGsubctgName();
+			}
+		}
 	//受注金額をフォーマット編集する
 	int kingaku = juchu.getTotalKingaku();
 	String sKingaku = null; //フォーマット編集後受注金額
@@ -26,7 +37,6 @@
 		System.out.println("IllegalArgumentException");
 	}
 %>
-<html lang="ja">
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="css/common1.css">
@@ -48,7 +58,7 @@
 					<p>
 						<small>COSD1010</small>
 					</p>
-					<h3>商品検索</h3>
+					<h3>売上TOP画面</h3>
 				</div>
 				<!-- コンテンツ内ナビゲーション部分 -->
 				<div id="contents_nav">
@@ -86,9 +96,13 @@
 						</p>
 					</div>
 				</div>
+				</form>
+				</div>
 				<hr>
 				<!-- コンテンツ内ボディ部分 -->
 				<div id="contents_body">
+				   <form action="CosServlet" method="post" name="form3"
+					onsubmit="clearTarget()">
 					<div class="cart_state">
 						<table>
 							<caption>カートの内容</caption>
@@ -102,12 +116,93 @@
 							</tr>
 						</table>
 						<div align="right">
+							<input type="submit" name="order" value="カートに入れる">&nbsp;&nbsp;&nbsp;
 							<input type="submit" name="order" value="カート内リスト">
 						</div>
 					</div>
-				</div>
-			</form>
-		</div>
+					<br>
+					<div align="right">購入数を入力して「カートに入れる」ボタンを押してください。</div>
+					<div class="goods_list">
+						<p>
+							商品カテゴリ：カテゴリ別売上TOP商品
+						</p>
+						<table>
+							<colgroup>
+								<col class="col_1">
+								<col class="col_2">
+								<col class="col_3">
+								<col class="col_4">
+							</colgroup>
+							<tr>
+								<th rowspan="2">商品カテゴリ</th>
+								<th rowspan="2">商品名</th>
+								<th><small>単価<br>（在庫状況）
+								</small></th>
+								<th>購入数</th>
+							</tr>
+						</table>
+						<table>
+							<colgroup>
+								<col class="col_1">
+								<col class="col_2">
+								<col class="col_3">
+								<col class="col_4">
+							</colgroup>
+							<%
+									String nameCD = null;
+									for(ShohinCategory category : categorylist) {
+											nameCD = category.getGctgName();
+								%>
+							<%
+								int tanka = 0;
+								String sTanka = null; //カンマ編集後単価文字列
+								Shohin shohin;
+								for (int i = 0; i < shohinList.size(); i++) {
+									shohin = (cosDataPack.Shohin) shohinList.get(i);
+									//単価をカンマ編集する
+									try {
+										tanka = shohin.getShohinPriData().getHtanka();
+										sTanka = nf.format(tanka);
+									} catch (IllegalArgumentException iae) {
+										System.out.println("IllegalArgumentException");
+									}
+							%>
+								<tr>
+								<td rowspan="2"><%=nameCD%></td>
+								<td rowspan="2"><%=shohin.getShohinPriData().getGoodsName()%></td>
+								<td align="right"><%=sTanka%>円</td>
+								<%
+									if ((shohin.getZaikoCnt() - shohin.getHikiateCnt()) <= 0) {
+									//引き当て可能数が0以下なら、数量の入力を不可にする
+								%>
+								<td><input type="text" name="suryou<%=i%>" maxlength="4"
+									readonly></td>
+								<%
+									} else {
+								%>
+								<td><input type="text" name="suryou<%=i%>" maxlength="4"></td>
+								<%
+									}
+								%>
+							</tr>
+							<tr>
+								<td>（<%=shohin.getZaikoHyouji()%>）
+								</td>
+								<td><input type="button" value="詳細"
+									onclick="setCD('<%=shohin.getShohinPriData().getGoodsCD()%>')"></td>
+							</tr>
+							<%
+								}
+							%>
+								<%
+									}
+								%>
+						</table>
+					</div>
+					<input type="hidden" name="hiddenCD"> <input type="hidden"
+						name="order" value="詳細">
+				</form>
+			</div>
 		<!-- フッター部分 -->
 		<div id="footer">
 			<address>&copy;Office Goody 2011 All rights reserved Office

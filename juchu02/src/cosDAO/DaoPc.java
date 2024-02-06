@@ -43,8 +43,8 @@ public class DaoPc extends DaoShohin {
 		//引数で渡された商品コードと営業所コードにより１件の情報を取得するSQL
 				query = "SELECT B.GOODSCD, B.GOODSNAME, B.H_TANKA, C.GCTGCD, C.GCTGNAME, G.GSUBCTGCD, " +
 						"G.GSUBCTGNAME, C.CLASSNAME, M.MAKERNAME, B.IRISU, B.TANNI, B.MAKERCD, B.COMMENT, B.IMG_URI, " +
-						"H.ZAIKO_CNT, B.SHUBETU, B.OTHER, B.COLOR, B.KATABAN, B.SIZE, B.RESOLUTION, B.CPU, B.MEMORY_CAPACITY, B.HDD_CAPACITY,"
-						+ "B.DRIVE, B.NETWORK, B.OS, B.SOFT, B.BATTERY, B.ACCESSORY, B.ASSURANCE, B.MASS, B.MEASURE " +
+						"H.ZAIKO_CNT, B.SHUBETU, B.OTHER, B.COLOR, B.KATABAN, B.SIZE, B.RESOLUTION, B.CPU, B.M_CAPACITY, B.H_CAPACITY,"
+						+ "B.DRIVE, B.NETWORK, B.OS, B.C_SOFT, B.BATTERY, B.ACCESSORY, B.A_PERIOD, B.MASS, B.MEASURE " +
 						"FROM PC_TABLE B, GSUBCTG_TABLE G, CTR_GCTG_TABLE C, HANBAIZAIKO" + eigyosyoCD
 						+ "_TABLE H, MAKER_TABLE M " +
 						"WHERE ((LEFT(B.GOODSCD, 2) = C.GCTGCD) AND (LEFT(B.GOODSCD, 4) = G.GSUBCTGCD) " +
@@ -84,15 +84,15 @@ public class DaoPc extends DaoShohin {
 						p1.setSize(rs.getString("SIZE"));
 						p1.setResolution(rs.getString("RESOLUTION"));
 						p1.setCpu(rs.getString("CPU"));
-						p1.setMemory_capacity(rs.getString("MEMORY_CAPACITY"));
-						p1.setHdd_capacity(rs.getString("HDD_CAPACITY"));
+						p1.setM_capacity(rs.getString("M_CAPACITY"));
+						p1.setH_capacity(rs.getString("H_CAPACITY"));
 						p1.setDrive(rs.getString("DRIVE"));
 						p1.setNetwork(rs.getString("NETWORK"));
 						p1.setOs(rs.getString("OS"));
-						p1.setSoft(rs.getString("SOFT"));
+						p1.setC_Soft(rs.getString("C_SOFT"));
 						p1.setBattery(rs.getString("BATTERY"));
 						p1.setAccessory(rs.getString("ACCESSORY"));
-						p1.setAssurance(rs.getString("ASSURANCE"));
+						p1.setA_period(rs.getString("A_PERIOD"));
 						p1.setMass(rs.getString("MASS"));
 						p1.setMeasure(rs.getString("MEASURE"));
 						//リストに追加

@@ -174,27 +174,25 @@ public class DaoControl {
 		} else if (code.length() == 14) {
 			//コードが１４ケタ⇒商品コード
 			//商品データ取得（1件）
-			//*******ここから、ver1*******
 			if (code.substring(0, 2).equals("01")) {
 				//頭２ケタが”01”⇒文具テーブルをアクセスするDaoBunguを作成
 				daoS = new DaoBungu(con);
 			} else if (code.substring(0, 2).equals("02")) {
 				//頭２ケタが”02”⇒書籍テーブルをアクセスするDaoBookを作成
 				daoS = new DaoBook(con);
-				//*******ここまで、ver1*******
 
-				//*******ここから、ver2*******
+				//ここからver２
 			} else if (code.substring(0, 2).equals("03")) {
 				//頭２ケタが”03”⇒食品テーブルをアクセスするDaoFoodsを作成
 				daoS = new DaoFoods(con);
 			} else if (code.substring(0, 2).equals("04")) {
-				//頭２ケタが”04”⇒食品テーブルをアクセスするDaoAvを作成
+				//頭２ケタが”04”⇒Av機器テーブルをアクセスするDaoAvを作成
 				daoS = new DaoAv(con);
 			} else if (code.substring(0, 2).equals("05")) {
-				//頭２ケタが”05”⇒食品テーブルをアクセスするDaoPcを作成
+				//頭２ケタが”05”⇒PCテーブルをアクセスするDaoPcを作成
 				daoS = new DaoPc(con);
-				//*******ここまで、ver2*******
 			}
+				//ここまでver２
 		}
 		//selectData()を実行して商品リストを取得する
 		list = daoS.selectData(code, eigyoshoCD);

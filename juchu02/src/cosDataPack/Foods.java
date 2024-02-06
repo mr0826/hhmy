@@ -7,9 +7,9 @@ public class Foods extends Shohin {
 	/** 内容量 */
 	private String net;
 	/** 製造国 */
-	private String production_country;
+	private String p_country;
 	/** 熱量 */
-	private String heat;
+	private String calorie;
 	/** 原材料 */
 	private String materials;
 	/** 栄養成分 */
@@ -58,37 +58,37 @@ public class Foods extends Shohin {
 	 * 製造国を取得する
 	 * @return 製造国
 	 */
-	public String getProduction_country() {
-		return production_country;
+	public String getP_country() {
+		return p_country;
 	}
 
 	/**
 	 * 製造国を設定する
-	 * @param production_country 製造国
+	 * @param p_country 製造国
 	 */
-	public void setProduction_country(String production_country) {
-		this.production_country = production_country;
+	public void setP_country(String p_country) {
+		this.p_country = p_country;
 	}
 
 	/**
 	 * 熱量を取得する
 	 * @return 熱量
 	 */
-	public String getHeat() {
-		return heat;
+	public String getCalorie() {
+		return calorie;
 	}
 
 	/**
 	 * 熱量を設定する
-	 * @param heat 熱量
+	 * @param calorie 熱量
 	 */
-	public void setHeat(String heat) {
-		this.heat = heat;
+	public void setCalorie(String calorie) {
+		this.calorie = calorie;
 	}
 
 	/**
 	 * 原材料を取得する
-	 * @return
+	 * @return 原材料
 	 */
 	public String getMaterials() {
 		return materials;
@@ -96,7 +96,7 @@ public class Foods extends Shohin {
 
 	/**
 	 * 原材料を設定する
-	 * @param materials
+	 * @param materials 原材料
 	 */
 	public void setMaterials(String materials) {
 		this.materials = materials;
@@ -104,7 +104,7 @@ public class Foods extends Shohin {
 
 	/**
 	 * 栄養成分を取得する
-	 * @return
+	 * @return 栄養成分
 	 */
 	public String getNutrition() {
 		return nutrition;
@@ -112,7 +112,7 @@ public class Foods extends Shohin {
 
 	/**
 	 * 栄養成分を設定する
-	 * @param nutrition
+	 * @param nutrition 栄養成分
 	 */
 	public void setNutrition(String nutrition) {
 		this.nutrition = nutrition;
